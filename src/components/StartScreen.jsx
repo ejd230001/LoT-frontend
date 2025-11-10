@@ -1,11 +1,12 @@
-
+import '../stylesheets/StartScreen.css'
 
 export default function StartScreen({ setCurrentStatus }) {
     return (
-        <>
+        <div className="start-screen">
             
 
             <section className="difficulty">
+                <h1>Choose Difficulty</h1>
                 <div className="difficulty-buttons">
                     <button>Easy</button>
                     <button>Medium</button>
@@ -14,6 +15,7 @@ export default function StartScreen({ setCurrentStatus }) {
             </section>
 
             <section className="categories">
+                <h1>Choose Categories</h1>
                 <div className="category-buttons">
                     <button>Champions</button>
                     <button>Lore</button>
@@ -27,6 +29,6 @@ export default function StartScreen({ setCurrentStatus }) {
             >
                 Start
             </button>
-        </>
+        </div>
     );
 }

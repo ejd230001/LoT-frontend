@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import StartScreen from "./components/StartScreen.jsx";
 import GameScreen from "./components/GameScreen.jsx";
 import EndScreen from "./components/EndScreen.jsx";
-import "./stylesheets/styles.css";
+import "./stylesheets/App.css";
 import logo from "./assets/logo.png";
 
 export default function App() {

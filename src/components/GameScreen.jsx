@@ -43,7 +43,7 @@ export default function GameScreen({ addResult }) {
         if (choice == currentQuestion.answer) {
             addResult({
                 correct: true,
-                choice,
+                
                 choices,
                 correctChoice: currentQuestion.answer,
                 question: currentQuestion.question
@@ -51,7 +51,7 @@ export default function GameScreen({ addResult }) {
         } else {
             addResult({
                 correct: false,
-                choice,
+                selectedChoice: choice,
                 choices,
                 correctChoice: currentQuestion.answer,
                 question: currentQuestion.question

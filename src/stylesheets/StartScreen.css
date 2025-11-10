@@ -1,0 +1,17 @@
+
+
+.start-screen button {
+    border: 3px solid #38290e;
+    font-family: "Beaufort";
+    color: #e8deaf;
+    background-color: #0c161d;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: .5em 1em;
+}
+
+.start-screen h1 {
+    color: #e8deaf;
+    text-transform: uppercase;
+}

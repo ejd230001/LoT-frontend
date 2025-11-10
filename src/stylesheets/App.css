@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "Beaufort";
+    src: url("../assets/fonts/BeaufortforLOL-Bold.woff2") format("woff2"),
+        url("../assets/fonts/BeaufortforLOL-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Beaufort";
+    src: url("../assets/fonts/BeaufortforLOL-Regular.woff2") format("woff2"),
+        url("../assets/fonts/BeaufortforLOL-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+img {
+    width: 15em;
+}
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: "Beaufort";
+    background-color: #0c171d;
+    display: grid;
+    place-items: center;
+    color: #e8deaf;
+    position: relative;
+}
+
+body:before {
+    content: '';
+    background: url('../assets/background.jpg');
+    position: absolute;
+    height: 100%;
+    inset: 0;
+    background-size: cover;
+    opacity: .5;
+}
+
+#root {
+    background-color: #0c171d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #38290e;
+    padding: 2em 4em;
+    border-radius: 3px;
+    min-height: 600px;
+    isolation: isolate;
+}
