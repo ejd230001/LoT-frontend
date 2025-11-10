@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import StartScreen from "./components/StartScreen.jsx";
 import GameScreen from "./components/GameScreen.jsx";
+import EndScreen from "./components/EndScreen.jsx";
 import "./stylesheets/styles.css";
+import logo from "./assets/logo.png";
 
 export default function App() {
     const [status, setStatus] = useState("Waiting");
@@ -11,22 +13,49 @@ export default function App() {
         esports: true,
     });
     const [difficulty, setDifficulty] = useState("");
+    const [questionResults, setQuestionResults] = useState([]);
+
+    useEffect(() => {
+        if (questionResults.length == 10) {
+            setCurrentStatus("Done");
+        }
+    }, [questionResults]);
 
     function setCurrentStatus(newStatus) {
+        if (newStatus == "Waiting") {
+            setQuestionResults([])
+        }
+
         setStatus(newStatus);
+        
+    }
+
+    function addResult(result) {
+        setQuestionResults((prev) => [...prev, result]);
     }
 
     return (
         <>
-            {status == "Waiting" && <StartScreen setCurrentStatus={setCurrentStatus} />}
+            <div className="img-header">
+                <img src={logo} alt="" />
+            </div>
+            {status == "Waiting" && (
+                <StartScreen setCurrentStatus={setCurrentStatus} />
+            )}
             {status == "Playing" && (
                 <GameScreen
                     categories={categories}
                     difficulty={difficulty}
                     setCurrentStatus={setCurrentStatus}
+                    addResult={addResult}
                 />
             )}
-            {status == "Done" && <EndScreen />}
+            {status == "Done" && (
+                <EndScreen
+                    questionResults={questionResults}
+                    setCurrentStatus={setCurrentStatus}
+                />
+            )}
         </>
     );
 }

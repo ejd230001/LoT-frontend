@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function GameScreen() {
+export default function GameScreen({ addResult }) {
     const [currentQuestion, setCurrentQuestion] = useState("");
     const [questionNumber, setQuestionNumber] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -21,20 +21,45 @@ export default function GameScreen() {
         const randomIndex = Math.floor(Math.random() * 4);
         answers.splice(randomIndex, 0, question.answer);
 
-        const answerElements = answers.map((answer, index) => <button key={index}>{answer}</button>)
+        const answerElements = answers.map((answer, index) => (
+            <button
+                onClick={() => handleQuestionSubmit(answer, answers)}
+                key={index}
+            >
+                {answer}
+            </button>
+        ));
 
         return (
-          <div className="question">
-            {question.question}
-            
-            <div className="answer-choices">
-              {answerElements}
+            <div className="question">
+                {question.question}
+
+                <div className="answer-choices">{answerElements}</div>
             </div>
-          </div>
-        )
+        );
     }
 
-    function handleQuestionSubmit(choice) {}
+    function handleQuestionSubmit(choice, choices) {
+        if (choice == currentQuestion.answer) {
+            addResult({
+                correct: true,
+                choice,
+                choices,
+                correctChoice: currentQuestion.answer,
+                question: currentQuestion.question
+            });
+        } else {
+            addResult({
+                correct: false,
+                choice,
+                choices,
+                correctChoice: currentQuestion.answer,
+                question: currentQuestion.question
+            });
+        }
+
+        setQuestionNumber((prev) => prev + 1);
+    }
 
     return (
         <div className="game-screen">

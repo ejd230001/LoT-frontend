@@ -1,13 +1,10 @@
-import logo from "../assets/logo.png"
 
-export default function StartScreen({setCurrentStatus}) {
 
+export default function StartScreen({ setCurrentStatus }) {
     return (
         <>
-            <div className="img-header">
-                <img src={logo} alt="" />
-            </div>
-                
+            
+
             <section className="difficulty">
                 <div className="difficulty-buttons">
                     <button>Easy</button>
@@ -24,8 +21,12 @@ export default function StartScreen({setCurrentStatus}) {
                 </div>
             </section>
 
-            <button className="start-button" onClick={() => setCurrentStatus("Playing")}>Start</button>
-
+            <button
+                className="start-button"
+                onClick={() => setCurrentStatus("Playing")}
+            >
+                Start
+            </button>
         </>
-    )
+    );
 }
