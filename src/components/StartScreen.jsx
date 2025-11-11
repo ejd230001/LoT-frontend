@@ -18,7 +18,7 @@ export default function StartScreen({ setCurrentStatus }) {
                 <h1>Choose Categories</h1>
                 <div className="category-buttons">
                     <button>Champions</button>
-                    <button>Lore</button>
+                    <button>Items</button>
                     <button>Esports</button>
                 </div>
             </section>

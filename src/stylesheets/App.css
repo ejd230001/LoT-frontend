@@ -18,6 +18,7 @@
 
 img {
     width: 15em;
+    
 }
 
 .correct {
@@ -38,26 +39,28 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100vh;
 }
 
 body {
     font-family: "Beaufort";
     background-color: #0c171d;
     display: grid;
-    place-items: center;
+    justify-content: center;
     color: #e8deaf;
     position: relative;
+    padding: 1em;
 }
 
 body:before {
-    content: '';
-    background: url('../assets/background.jpg');
+    content: "";
+    background: url("../assets/background.jpg");
     position: absolute;
     height: 100%;
     inset: 0;
     background-size: cover;
-    opacity: .5;
+    opacity: 0.5;
+    background-attachment: fixed;
 }
 
 #root {
@@ -66,8 +69,28 @@ body:before {
     flex-direction: column;
     align-items: center;
     border: 5px solid #38290e;
-    padding: 2em 4em;
+    padding: 2em 2em;
     border-radius: 3px;
-    min-height: 600px;
     isolation: isolate;
+    height: fit-content;
+    
+}
+
+.img-header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -1em;
+}
+
+.img-header:after {
+    margin-block: 1em;
+    content: '';
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    border-bottom: 2px solid #38290e;
 }
