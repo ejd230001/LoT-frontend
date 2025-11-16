@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../stylesheets/GameScreen.css"
 
 export default function GameScreen({ addResult }) {
     const [currentQuestion, setCurrentQuestion] = useState("");
@@ -32,7 +33,7 @@ export default function GameScreen({ addResult }) {
 
         return (
             <div className="question">
-                {question.question}
+                <h1 className="question-header">{question.question}</h1>
 
                 <div className="answer-choices">{answerElements}</div>
             </div>
@@ -43,7 +44,7 @@ export default function GameScreen({ addResult }) {
         if (choice == currentQuestion.answer) {
             addResult({
                 correct: true,
-                
+                selectedChoice: choice,
                 choices,
                 correctChoice: currentQuestion.answer,
                 question: currentQuestion.question

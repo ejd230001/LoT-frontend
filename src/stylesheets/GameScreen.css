@@ -1,0 +1,56 @@
+.game-screen {
+    padding: 1.5em 1em;
+    border-radius: 8px;
+    width: 100%;
+    min-height: 50%;
+}
+
+.question {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.question-header {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.answer-choices {
+    display: grid;
+    gap: 2em;
+    width: 100%;
+    margin-block: auto;
+}
+
+.answer-choices button {
+    border: 3px solid #38290e;
+    font-family: "Beaufort";
+    color: #e8deaf;
+    background-color: #0c161d;
+    border-radius: 8px;
+    padding: .5em 1em;
+    font-size: 1.5rem;
+}
+
+.answer-choices button:hover {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 820px) {
+    .answer-choices {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .game-screen {
+        border: 3px solid #38290e;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .question-header {
+        margin-block: auto;
+    }
+}

@@ -21,6 +21,10 @@
     margin-block: 1em;
 }
 
+.difficulty h1 {
+    margin-top: .5em;
+}
+
 .difficulty-buttons,
 .category-buttons {
     display: flex;
