@@ -20,14 +20,6 @@ img {
     width: 15em;
 }
 
-.correct {
-    color: green;
-}
-
-.wrong {
-    color: red;
-}
-
 *,
 *:before,
 *:after {
