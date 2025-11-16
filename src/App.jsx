@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import StartScreen from "./components/StartScreen.jsx";
 import GameScreen from "./components/GameScreen.jsx";
 import EndScreen from "./components/EndScreen.jsx";
-import "./stylesheets/reset.css"
+import "./stylesheets/reset.css";
 import "./stylesheets/App.css";
 import logo from "./assets/logo.png";
 
 export default function App() {
     const [status, setStatus] = useState("Waiting");
     const [categories, setCategories] = useState({
-        champions: true,
-        items: true,
-        esports: true,
+        champions: false,
+        items: false,
+        esports: false,
     });
     const [difficulty, setDifficulty] = useState("");
     const [questionResults, setQuestionResults] = useState([]);
@@ -24,11 +24,10 @@ export default function App() {
 
     function setCurrentStatus(newStatus) {
         if (newStatus == "Waiting") {
-            setQuestionResults([])
+            setQuestionResults([]);
         }
 
         setStatus(newStatus);
-        
     }
 
     function addResult(result) {
@@ -41,7 +40,13 @@ export default function App() {
                 <img src={logo} alt="" />
             </div>
             {status == "Waiting" && (
-                <StartScreen setCurrentStatus={setCurrentStatus} />
+                <StartScreen
+                    setCurrentStatus={setCurrentStatus}
+                    setCategories={setCategories}
+                    categories={categories}
+                    setDifficulty={setDifficulty}
+                    difficulty={difficulty}
+                />
             )}
             {status == "Playing" && (
                 <GameScreen

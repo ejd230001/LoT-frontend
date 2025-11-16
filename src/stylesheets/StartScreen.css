@@ -10,6 +10,17 @@
     font-size: 1.5rem;
     width: 9em;
     box-shadow: 5px 5px 15px 5px #000000;
+    cursor: pointer;
+    transition: .15s;
+}
+
+.start-screen button:hover {
+    transform: scale(1.2)
+}
+
+.start-screen .active {
+    background-color: #A37A2C;
+    color: #f8e7c7;
 }
 
 .start-screen h1 {
@@ -38,7 +49,7 @@ button.start-button {
     margin-inline: auto;
     margin-top: 2em;
     border: 0;
-    background-color: #c28f2b;
+    background-color: #be9136;
     color: black;
     width: 100%;
     max-width: 300px;
