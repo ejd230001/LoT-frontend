@@ -20,7 +20,9 @@ export default function GameScreen({ addResult, categories, difficulty }) {
     }, [questionNumber]);
 
     function constructLink() {
-        let link = "http://localhost:8000/api/question"
+        const API_URL = import.meta.env.VITE_API_URL;
+        console.log(API_URL)
+        let link = `${API_URL}/api/question`
         if (difficulty != "")
             link += `/${difficulty}`
         link += '?'
