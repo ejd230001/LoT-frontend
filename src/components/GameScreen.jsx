@@ -1,21 +1,35 @@
 import { useEffect, useState } from "react";
 import "../stylesheets/GameScreen.css"
 
-export default function GameScreen({ addResult }) {
+export default function GameScreen({ addResult, categories, difficulty }) {
     const [currentQuestion, setCurrentQuestion] = useState("");
     const [questionNumber, setQuestionNumber] = useState(0);
     const [loading, setLoading] = useState(true);
-
+    constructLink()
     useEffect(() => {
         const getQuestion = async () => {
             setLoading(true);
-            const response = await fetch("http://localhost:8000/api/question");
+
+
+            const response = await fetch(constructLink());
             const data = await response.json();
             setCurrentQuestion(data);
             setLoading(false);
         };
         getQuestion();
     }, [questionNumber]);
+
+    function constructLink() {
+        let link = "http://localhost:8000/api/question"
+        if (difficulty != "")
+            link += `/${difficulty}`
+        link += '?'
+        for (let key in categories)
+            if (categories[key])
+                link += `category=${key}&`
+        return link
+        
+    }
 
     function renderCurrentQuestion(question) {
         const answers = [...question.wrongAnswers];
