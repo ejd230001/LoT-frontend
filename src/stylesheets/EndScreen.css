@@ -66,12 +66,25 @@
     grid-column: 1;
 }
 
+.arrows img {
+    transition: .1s;
+    cursor: pointer;
+}
+
 .back-arrow {
     margin-right: 1em;
 }
 
+.back-arrow:hover {
+    transform: scale(1.1)
+}
+
 .forward-arrow {
     margin-right: -1em;
+}
+
+.forward-arrow:hover {
+    transform: scaleX(-1.1) scaleY(1.1)
 }
 
 .end-screen-footer button {
@@ -88,6 +101,12 @@
     box-shadow: 5px 5px 15px 5px #000000;
     margin-inline: auto;
     grid-column: 1 / -1;
+    transition: .1s;
+}
+
+.end-screen-footer button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .leaderboard {
